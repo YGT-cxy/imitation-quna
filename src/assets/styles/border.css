@@ -1,0 +1,114 @@
+@charset "UTF-8";
+.border,
+.border-top,
+.border-left,
+.border-right,
+.border-bottom,
+.border-topbottom,
+.border-leftright {
+    position: relative;
+}
+.border:after,
+.border-top:after,
+.border-left:after,
+.border-right:after,
+.border-bottom:after,
+.border-topbottom:after,
+.border-leftright:after {
+    content: "";
+    position: absolute;
+    transform-origin: 0 0;
+}
+.border:after {
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+}
+.border-top:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-top: 1px solid #000;
+}
+.border-left:after {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-left: 1px solid #000;
+}
+.border-right:after {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    border-right: 1px solid #000;
+}
+.border-bottom:after {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid #000;
+}
+.border-topbottom:after {
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-color: #000;
+    border-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left: none;
+    border-right: none;
+}
+.border-leftright:after {
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-color: #000;
+    border-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top: none;
+    border-bottom: none;
+}
+
+/*设备像素比*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0), only screen and (min-resolution: 2dppx) {
+    .border-bottom::after, .border-top::after {
+        transform: scaleY(0.5);
+    }
+    .border-left::after, .border-right::after {
+        transform: scaleX(0.5);
+    }
+    .border::after, .border-topbottom:after, .border-leftright:after {
+        width: 200%;
+        height: 200%;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+    }
+}
+/*设备像素比*/
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0), only screen and (min-resolution: 3dppx) {
+    .border-bottom::after, .border-top::after {
+        transform: scaleY(0.333);
+    }
+    .border-left::after, .border-right::after {
+        transform: scaleX(0.333);
+    }
+    .border::after, .border-topbottom:after, .border-leftright:after {
+        width: 300%;
+        height: 300%;
+        transform: scale(0.333);
+        transform-origin: 0 0;
+    }
+}
