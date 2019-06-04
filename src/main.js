@@ -10,17 +10,19 @@ import './assets/styles/reset.css';
 import './assets/styles/border.css';
 import './assets/styles/iconfont.css';
 import 'swiper/dist/css/swiper.css';
+import { Toast, Loading, Notify } from 'vant';
 
 Vue.config.productionTip = false;
 
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCordova);
+Vue.use(Toast).use(Loading).use(Notify);
 
 // 配置axios
 axios.defaults.baseURL = 'http://zjyegt.cn:8888';
 Vue.prototype.$axios = axios;
 
-const app = new Vue({
+new Vue({
   router,
   store,
   render: h => h(App),
